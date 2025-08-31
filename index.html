@@ -461,8 +461,24 @@
             });
 
         });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Cek dan hapus hash dari URL (menggunakan metode yang lebih robust)
+            if (window.location.hash) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+
+            // 2. Paksa scroll ke atas untuk melawan perilaku default browser
+            // Ini adalah bagian penting dari kode yang Anda temukan
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 0);
+
+            // ... sisa kode event listener Anda yang lain (mobile menu, dll)
+        });
     </script>
 
 </body>
 </html>
+
 
