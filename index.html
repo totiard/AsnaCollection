@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asna Collection - Semua Kebutuhan Anda, dalam Satu Koleksi Pilihan</title>
+    <meta name="description" content="Asna Collection adalah pusat perbelanjaan lengkap (Palugada) yang menyediakan fashion, perlengkapan sekolah, elektronik, hingga peralatan rumah tangga. Kami juga agen resmi BSI dan spesialis Batik berkualitas.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero-bg {
+            background-image: url('img/Asna\ Collection.jpg');
+        }
+        .bsi-agen-bg {
+             background-image: url('img/Agen\ BSI.jpg');
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Styling untuk link navbar yang aktif */
+        .nav-link-active {
+            color: #1d4ed8 !important; /* Tailwind's blue-800 */
+            font-weight: 600;
+            border-bottom: 2px solid #1d4ed8;
+            padding-bottom: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- Header & Navbar -->
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                <a href="#home" class="flex items-center gap-3">
+                    <img src="img/favicon.png" alt="Logo Asna Collection" class="h-12 w-auto">
+                    <span class="font-bold text-xl text-gray-800 hidden sm:block">Asna Collection</span>
+                </a>
+            </div>
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#home" class="nav-link text-gray-600 hover:text-blue-800 font-medium">Beranda</a>
+                <div class="relative dropdown">
+                    <button id="dropdown-button" class="text-gray-600 hover:text-blue-800 font-medium flex items-center">
+                        Produk Kami <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div id="dropdown-menu" class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md mt-4 py-2 w-56 z-50">
+                        <a href="#fashion" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Busana & Fashion</a>
+                        <a href="#sekolah" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Peralatan Sekolah</a>
+                        <a href="#elektronik" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Elektronik</a>
+                        <a href="#rumahtangga" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Peralatan Rumah Tangga</a>
+                        <a href="#herbal" class="block px-4 py-2 text-gray-700 hover:bg-blue-50">Produk Herbal</a>
+                    </div>
+                </div>
+                <a href="#batik" class="nav-link text-gray-600 hover:text-blue-800 font-medium">Spesial Batik</a>
+                <a href="#bsi-agen" class="nav-link text-gray-600 hover:text-blue-800 font-medium">Layanan BSI Agen</a>
+                <a href="#kontak" class="nav-link text-gray-600 hover:text-blue-800 font-medium">Tentang & Kontak</a>
+            </div>
+            <div class="hidden lg:block">
+                 <a href="https://wa.me/6287889214954" target="_blank" class="bg-green-500 text-white font-bold py-2 px-4 rounded-full hover:bg-green-600 transition duration-300 flex items-center">
+                    <i data-lucide="message-square" class="w-5 h-5 mr-2"></i> Hubungi Kami
+                </a>
+            </div>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pb-4">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Beranda</a>
+            <a href="#fashion" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Busana & Fashion</a>
+            <a href="#sekolah" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Peralatan Sekolah</a>
+            <a href="#elektronik" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Elektronik</a>
+            <a href="#rumahtangga" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Peralatan Rumah Tangga</a>
+            <a href="#herbal" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Produk Herbal</a>
+            <a href="#batik" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Spesial Batik</a>
+            <a href="#bsi-agen" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Layanan BSI Agen</a>
+            <a href="#kontak" class="block py-2 text-gray-600 hover:text-blue-800 font-medium">Tentang & Kontak</a>
+            <a href="https://wa.me/6287889214954" target="_blank" class="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded-full hover:bg-green-600 transition duration-300 flex items-center justify-center">
+                <i data-lucide="message-square" class="w-5 h-5 mr-2"></i> Hubungi Kami
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="bg-white pt-12 pb-12 md:pt-16 md:pb-16">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
+                    <!-- Text Content -->
+                    <div class="lg:w-1/2 text-center lg:text-left fade-in-up">
+                        <img src="img/logo nama 1.png" alt="Logo Asna Collection" class="mx-auto lg:mx-0 mb-6 h-24 md:h-28">
+                        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-gray-900" style="transition-delay: 100ms;">Solusi Segala Kebutuhan Anda.</h1>
+                        <p class="text-xl md:text-2xl text-gray-600 mb-8" style="transition-delay: 200ms;">Dari fashion terkini hingga layanan perbankan, kami hadir untuk melengkapi setiap momen berharga Anda.</p>
+                        <a href="#produk" class="bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-800 transition duration-300 transform hover:scale-105 inline-block" style="transition-delay: 300ms;">Jelajahi Koleksi Kami</a>
+                    </div>
+                    <!-- Image Content -->
+                    <div class="lg:w-1/2 w-screen lg:w-full fade-in-up" style="transition-delay: 200ms;">
+                        <div class="hero-bg bg-cover bg-center aspect-[3/2] lg:rounded-2xl shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div class="fade-in-up">
+                        <div class="bg-blue-100 rounded-full p-4 inline-block mb-4">
+                            <i data-lucide="package-check" class="w-10 h-10 text-blue-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Produk Terkurasi</h3>
+                        <p class="text-gray-600">Meskipun lengkap, setiap produk dipilih dengan cermat untuk memastikan kualitas terbaik.</p>
+                    </div>
+                    <div class="fade-in-up" style="transition-delay: 100ms;">
+                        <div class="bg-blue-100 rounded-full p-4 inline-block mb-4">
+                            <i data-lucide="shopping-basket" class="w-10 h-10 text-blue-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Konsep Palugada</h3>
+                        <p class="text-gray-600">"Apa Lu Mau, Gua Ada". Dari fashion hingga elektronik, kami siap melayani.</p>
+                    </div>
+                    <div class="fade-in-up" style="transition-delay: 200ms;">
+                        <div class="bg-blue-100 rounded-full p-4 inline-block mb-4">
+                            <i data-lucide="truck" class="w-10 h-10 text-blue-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Layanan Pre-Order</h3>
+                        <p class="text-gray-600">Barang yang Anda cari tidak ada? Pesan saja, kami akan carikan untuk Anda.</p>
+                    </div>
+                    <div class="fade-in-up" style="transition-delay: 300ms;">
+                        <div class="bg-blue-100 rounded-full p-4 inline-block mb-4">
+                            <i data-lucide="credit-card" class="w-10 h-10 text-blue-800"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Pembayaran Lengkap</h3>
+                        <p class="text-gray-600">Menerima Tunai, QRIS, hingga KJP untuk kemudahan transaksi Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Categories Section -->
+        <section id="produk" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-3">Koleksi Produk Kami</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Menemukan semua yang Anda butuhkan di satu tempat tidak pernah semudah ini.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <!-- Fashion -->
+                    <div id="fashion" class="bg-white rounded-lg shadow-xl overflow-hidden group transform hover:-translate-y-2 transition-all duration-300 fade-in-up">
+                        <img src="img/fashion.avif" alt="[Gambar busana fashion wanita modern]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Busana & Fashion</h3>
+                            <p class="text-gray-600">Dari pakaian dalam hingga gaun pesta, anak-anak hingga dewasa. Tersedia layanan pre-order.</p>
+                        </div>
+                    </div>
+                     <!-- Sekolah -->
+                    <div id="sekolah" class="bg-white rounded-lg shadow-xl overflow-hidden group transform hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 100ms;">
+                        <img src="img/atk.jpeg" alt="[Gambar tas dan alat tulis sekolah]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Peralatan Sekolah</h3>
+                            <p class="text-gray-600">Seragam, tas, sepatu, alat tulis, dan lainnya. Terima pembayaran KJP. Pre-order tersedia.</p>
+                        </div>
+                    </div>
+                    <!-- Elektronik -->
+                    <div id="elektronik" class="bg-white rounded-lg shadow-xl overflow-hidden group transform hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 200ms;">
+                        <img src="img/elektronik.jpg" alt="[Gambar berbagai macam alat elektronik]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Elektronik</h3>
+                            <p class="text-gray-600">Handphone, laptop, TV, dan gadget terbaru. Dapatkan barang impian Anda via pre-order.</p>
+                        </div>
+                    </div>
+                     <!-- Rumah Tangga -->
+                    <div id="rumahtangga" class="bg-white rounded-lg shadow-xl overflow-hidden group transform hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 300ms;">
+                        <img src="img/peralatan rumah.avif" alt="[Gambar peralatan dapur rumah tangga]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Peralatan Rumah Tangga</h3>
+                            <p class="text-gray-600">Karpet, koper, panci, dan segala kebutuhan untuk melengkapi hunian nyaman Anda.</p>
+                        </div>
+                    </div>
+                    <!-- Herbal -->
+                    <div id="herbal" class="bg-white rounded-lg shadow-xl overflow-hidden group transform hover:-translate-y-2 transition-all duration-300 fade-in-up" style="transition-delay: 400ms;">
+                        <img src="img/herbal.avif" alt="[Gambar kurma dan produk herbal lainnya]" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">Produk Herbal</h3>
+                            <p class="text-gray-600">Temukan kurma, propolis, madu, dan berbagai obat herbal alami untuk kesehatan Anda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spesial Batik Section -->
+        <section id="batik" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 fade-in-up">
+                        <span class="text-blue-700 font-semibold">Mahakarya Nusantara</span>
+                        <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">Batik Kualitas Premium Asna Collection</h2>
+                        <p class="text-gray-600 mb-6 text-lg">Kami bangga mempersembahkan koleksi batik ternama dengan kualitas setara butik dan beragam motif dan corak. Batik kami setara dengan yang dijual di Matahari, Ramayana, dan mall-mall besar Dapatkan harga terjangkau untuk kualitas premium. Kami melayani: </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold">Pesanan Seragam Massal</h4>
+                                    <p class="text-gray-600">Solusi sempurna untuk seragam pernikahan, acara keluarga, atau kantor dengan beragam motif pilihan.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold">Jasa Jahit Eksklusif (Custom Tailor)</h4>
+                                    <p class="text-gray-600">Pilih bahan batik dari kami, berikan contoh ukuran, dan biarkan penjahit ahli kami mewujudkan busana impian Anda.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/6287889214954?text=Halo%20Asna%20Collection,%20saya%20tertarik%20dengan%20koleksi%20Batik." target="_blank" class="bg-blue-800 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-900 transition duration-300 inline-block">Konsultasi Batik Sekarang</a>
+                    </div>
+                    <div class="lg:w-1/2 grid grid-cols-2 gap-4 fade-in-up" style="transition-delay: 200ms;">
+                        <img src="img/kain batik.jpg" alt="[Gambar detail kain batik yang indah]" class="rounded-lg shadow-lg aspect-square object-cover">
+                        <img src="img/batik pria.jpg" alt="[Gambar kemeja batik pria]" class="rounded-lg shadow-lg aspect-square object-cover mt-8">
+                        <img src="img/batik wanita.jpg" alt="[Gambar gaun batik wanita]" class="rounded-lg shadow-lg aspect-square object-cover">
+                        <img src="img/batik pasangan.jpg" alt="[Gambar sepasang baju batik couple]" class="rounded-lg shadow-lg aspect-square object-cover mt-8">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- BSI Agen Section -->
+        <section id="bsi-agen" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-10 fade-in-up">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-3">Mitra Perbankan Syariah Anda</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Asna Collection kini juga menjadi BSI Agen resmi. Nikmati kemudahan layanan perbankan syariah tanpa harus ke kantor cabang.</p>
+                </div>
+                <div class="bsi-agen-bg bg-cover bg-center aspect-[5/2] w-full rounded-2xl shadow-xl mb-12 fade-in-up"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-gray-800">
+                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-up">
+                        <i data-lucide="user-plus" class="w-10 h-10 text-blue-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Buka Rekening</h3>
+                        <p class="text-gray-600">Mulai menabung dengan mudah dan cepat melalui kami.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-up" style="transition-delay: 100ms;">
+                        <i data-lucide="arrow-right-left" class="w-10 h-10 text-blue-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Tarik & Setor Tunai</h3>
+                        <p class="text-gray-600">Akses dana Anda atau menabung tanpa perlu mencari ATM.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-md fade-in-up" style="transition-delay: 200ms;">
+                        <i data-lucide="send" class="w-10 h-10 text-blue-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Transfer Dana</h3>
+                        <p class="text-gray-600">Kirim uang ke sesama BSI atau bank lain dengan aman.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-up">
+                        <i data-lucide="receipt" class="w-10 h-10 text-blue-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Pembayaran Tagihan</h3>
+                        <p class="text-gray-600">Bayar PLN, PDAM, BPJS, PBB, E-Commerce dan lainnya.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-up" style="transition-delay: 100ms;">
+                        <i data-lucide="wallet" class="w-10 h-10 text-blue-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Pembelian & Top Up</h3>
+                        <p class="text-gray-600">Beli pulsa, paket data, token listrik, & top-up e-wallet.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md fade-in-up" style="transition-delay: 200ms;">
+                        <i data-lucide="gem" class="w-10 h-10 text-blue-700 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Layanan Islami</h3>
+                        <p class="text-gray-600">Bayar Zakat, Infaq, hingga pendaftaran & pelunasan Haji.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Brand & Payment Section -->
+        <section id="kontak" class="py-20">
+            <div class="container mx-auto px-6">
+                 <!-- Tentang Kami -->
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Tentang Asna Collection</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Asna Collection bukan sekadar toko, tapi solusi untuk semua kebutuhan Anda. Dengan konsep "palugada" (Apa Yang Lu Mau, Gue Ada), kami hadir untuk menyediakan beragam produk berkualitas, mulai dari fashion, peralatan sekolah, elektronik, hingga kebutuhan rumah tangga. Kami percaya bahwa setiap pelanggan layak mendapatkan kemudahan dan pelayanan terbaik.</p>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">Didukung oleh tim yang profesional dan layanan pre-order yang fleksibel, kami siap membantu Anda menemukan apa pun yang Anda cari. Kami juga berbangga hati menjadi agen BSI, memberikan kemudahan akses perbankan syariah bagi masyarakat. Selamat datang di Asna Collection, tempat di mana kualitas dan kenyamanan berbelanja menjadi prioritas.</p>
+                </div>
+                 <!-- Our Brand -->
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-3">Identitas Brand Kami</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kami membangun Asna Collection dengan profesionalisme, tercermin dari setiap detail brand kami.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center mb-16 fade-in-up" style="transition-delay: 100ms;">
+                    <img src="img/favicon.png" alt="Logo Asna Collection" class="max-h-40 mx-auto transition-transform hover:scale-110">
+                    <img src="img/logo nama 1.png" alt="Logo dan Nama Asna Collection" class="max-h-40 mx-auto transition-transform hover:scale-110">
+                    <img src="img/label kerah.png" alt="Contoh label kerah" class="max-h-40 mx-auto transition-transform hover:scale-110">
+                    <img src="img/handtag 1.png" alt="Contoh handtag 1" class="max-h-52 mx-auto transition-transform hover:scale-110">
+                    <img src="img/handtag 2.png" alt="Contoh handtag 2" class="max-h-52 mx-auto transition-transform hover:scale-110">
+                </div>
+
+                <!-- Payment Method -->
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg mt-16 fade-in-up">
+                    <div class="text-center">
+                        <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Metode Pembayaran Lengkap & Aman</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Kami menyediakan berbagai opsi pembayaran untuk kenyamanan dan keamanan transaksi Anda, didukung oleh mesin EDC resmi dari Bank DKI.</p>
+                    </div>
+                    <div class="mt-10 flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                        <div class="text-center">
+                            <img src="img/tunai.webp" alt="Pembayaran Tunai" class="h-24 md:h-32 object-contain">
+                            <p class="mt-2 font-semibold text-lg">Tunai</p>
+                        </div>
+                         <div class="text-center">
+                            <img src="img/QRIS Asna Collection.jpeg" alt="Pembayaran QRIS" class="h-32 md:h-40 object-contain">
+                             <p class="mt-2 font-semibold text-lg">QRIS</p>
+                        </div>
+                         <div class="text-center">
+                            <img src="img/KJP.png" alt="Pembayaran KJP" class="h-24 md:h-32 object-contain">
+                             <p class="mt-2 font-semibold text-lg">KJP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location -->
+        <section id="kontak" class="py-20 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 fade-in-up">
+                    <h2 class="text-4xl font-extrabold mb-3">Hubungi & Kunjungi Kami</h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">Kami siap melayani Anda. Jangan ragu untuk menghubungi kami atau datang langsung ke toko kami.</p>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-10">
+                    <div class="lg:w-1/2 bg-gray-800 p-8 rounded-lg fade-in-up">
+                        <h3 class="text-2xl font-bold mb-6">Informasi Kontak</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i data-lucide="map-pin" class="w-8 h-8 text-blue-400 mr-4 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Alamat Toko</h4>
+                                    <p class="text-gray-300">Jl. Damai Raya Jl. H.Nirin No.21C, RT.3/RW.5, Petukangan Sel., Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12270</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="phone" class="w-8 h-8 text-blue-400 mr-4 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Telepon / WhatsApp</h4>
+                                    <a href="https://wa.me/6287889214954" target="_blank" class="text-blue-300 hover:text-white transition-colors duration-300">0878-8921-4954</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="clock" class="w-8 h-8 text-blue-400 mr-4 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Jam Operasional</h4>
+                                    <p class="text-gray-300">Senin - Minggu: 08:00 - 21:00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 h-96 lg:h-auto rounded-lg overflow-hidden shadow-2xl fade-in-up" style="transition-delay: 200ms;">
+                        <!-- TODO: Ganti src iframe ini dengan embed code untuk alamat yang baru -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.5312236111691!2d106.75202686961265!3d-6.247268266467945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!s0x2e69f15d2251b911%3A0x9923783a677299f6!2sASNA%20COLLECTION!5e0!3m2!1sid!2sid!4v1756616234816!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-8">
+                <!-- Left Side -->
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-3 mb-2">
+                        <img src="img/favicon.png" alt="Logo Asna Collection" class="h-12 w-auto">
+                        <span class="font-bold text-xl text-white">Asna Collection</span>
+                    </div>
+                    <p class="text-gray-400 text-sm italic">Your One-Stop Curated Solution.</p>
+                </div>
+                <!-- Right Side -->
+                <div class="text-sm">
+                    <p class="font-semibold">&copy; 2025 Asna Collection. All Rights Reserved.</p>
+                    <p class="text-gray-500 mt-1">Developed by <a href="http://totiard.github.io/Profile-New" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Toti Ardiansyah</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Dropdown menu toggle on click
+            const dropdownButton = document.getElementById('dropdown-button');
+            const dropdownMenu = document.getElementById('dropdown-menu');
+            dropdownButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            window.addEventListener('click', (event) => {
+                if (!dropdownMenu.classList.contains('hidden') && !dropdownButton.contains(event.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+
+            // Animation on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+            elementsToAnimate.forEach(el => observer.observe(el));
+            
+            // Navbar active link on scroll
+            const sections = document.querySelectorAll('main section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const activateNavLink = (id) => {
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
+            };
+
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        activateNavLink(entry.target.id);
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' }); // Adjust rootMargin to activate when section is in the middle of the screen
+
+            sections.forEach(section => {
+                scrollObserver.observe(section);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
