@@ -5,7 +5,7 @@
 
 /* Pastikan background tetap putih */
 html, body {
-  background: #ffffff !important;
+  background: #f8f9fa !important;
   color: #1a1a1a !important; /* teks tetap gelap */
 }
 
