@@ -1,6 +1,6 @@
 /* Matikan efek dark mode otomatis dari browser */
 :root {
-  color-scheme: light;
+  color-scheme: light only;
 }
 
 /* Pastikan background tetap putih */
