@@ -3,35 +3,10 @@
   color-scheme: light only;
 }
 
-/* Pastikan background tetap putih */
-html, body {
-  background: #f8f9fa !important;
-  color: #1a1a1a !important; /* teks tetap gelap */
-}
-
 body {
     font-family: "Inter", sans-serif;
     background-color: #f8f9fa;
 }
-
-html, body, section, header, footer, div {
-    background-color: #f8f9fa !important;
-    color: #1a1a1a !important;
-  }
-
-  [class*="bg-gray"],
-  [class*="bg-slate"],
-  [class*="bg-neutral"],
-  [class*="bg-zinc"] {
-    background-color: #f8f9fa !important;
-  }
-
-  [class*="text-gray"],
-  [class*="text-slate"],
-  [class*="text-neutral"],
-  [class*="text-zinc"] {
-    color: #1a1a1a !important;
-  }
 
 .hero-bg {
     background-image: url("img/Asna\ Collection.jpg");
