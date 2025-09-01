@@ -6,6 +6,20 @@
     <title>Asna Collection</title>
     <meta name="description" content="Asna Collection adalah pusat perbelanjaan lengkap (Palugada) yang menyediakan fashion, perlengkapan sekolah, elektronik, hingga peralatan rumah tangga. Kami juga agen resmi BSI dan spesialis Batik berkualitas.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Atau bisa juga 'media'
+            // Baris di bawah ini secara efektif mematikan dark mode
+            // dengan tidak menyediakan konfigurasi warna untuk dark mode.
+            // Anda bisa membiarkannya kosong seperti ini.
+            theme: {
+                extend: {
+                    // Anda bisa menambahkan kustomisasi lain di sini jika perlu
+                }
+            }
+        }
+    </script>
+
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -388,5 +402,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
