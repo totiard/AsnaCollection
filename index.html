@@ -358,7 +358,6 @@
     <footer class="bg-gray-800 text-gray-300">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-8">
-                <!-- Left Side -->
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-3 mb-2">
                         <img src="img/favicon.png" alt="Logo Asna Collection" class="h-12 w-auto">
@@ -366,10 +365,14 @@
                     </div>
                     <p class="text-gray-400 text-sm italic">Your One-Stop Curated Solution.</p>
                 </div>
-                <!-- Right Side -->
                 <div class="text-sm">
-                    <p class="font-semibold">&copy; 2025 Asna Collection. All Rights Reserved.</p>
+                    <p class="font-semibold">© 2025 Asna Collection. All Rights Reserved.</p>
                     <p class="text-gray-500 mt-1">Developed by <a href="http://totiard.github.io/Profile-New" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Toti Ardiansyah</a></p>
+                    
+                    <div class="mt-4 text-gray-400 text-xs flex items-center justify-center md:justify-start">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                        <span>Total Pengunjung: <strong><span id="visitor-count">...</span></strong></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -387,12 +390,8 @@
             <img id="modal-image" src="" alt="Gambar yang diperbesar" class="rounded-lg shadow-2xl max-w-full max-h-[90vh] object-contain">
         </div>
     </div>
-
+    
+    <script type="module" src="counter.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
