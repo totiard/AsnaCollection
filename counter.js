@@ -26,10 +26,9 @@ const app = initializeApp(firebaseConfig);
 // Inisialisasi Firestore
 const db = getFirestore(app);
 
-// Fungsi untuk mengupdate dan menampilkan jumlah pengunjung
+// Fungsi untuk mengupdate dan menampilkan jumlah pengunjung (versi final)
 async function updateAndDisplayVisitorCount() {
-    // GANTI DENGAN URL WORKER ANDA
-    const WORKER_URL = "https://asna-notifier.totiardiansyah871.workers.dev/"; // URL ini didapat dari dashboard Cloudflare setelah deploy
+    const WORKER_URL = "https://asna-notifier.totiardiansyah871.workers.dev/";
 
     const counterRef = doc(db, "counters", "asna_viewers");
     const countSpan = document.getElementById('visitor-count');
@@ -37,43 +36,48 @@ async function updateAndDisplayVisitorCount() {
     if (!countSpan) return;
 
     try {
-        let newCount = 0;
-
-        // Cek sessionStorage untuk memastikan counter hanya bertambah sekali per sesi
-        if (!sessionStorage.getItem('asnaVisited')) {
-            await updateDoc(counterRef, { count: increment(1) });
-            sessionStorage.setItem('asnaVisited', 'true');
-        }
-
-        // Ambil data terbaru untuk ditampilkan
         const docSnap = await getDoc(counterRef);
+        let currentCount = 0;
 
         if (docSnap.exists()) {
-            newCount = docSnap.data().count;
+            currentCount = docSnap.data().count;
+        } else {
+            await setDoc(counterRef, { count: 0 });
+        }
+
+        // Cek sessionStorage untuk memastikan semua aksi hanya berjalan sekali per sesi
+        if (!sessionStorage.getItem('asnaVisited')) {
+            // Tandai sesi ini sudah dikunjungi agar tidak dihitung ulang saat refresh
+            sessionStorage.setItem('asnaVisited', 'true');
+            
+            // 1. Update nilai counter di database
+            await updateDoc(counterRef, { count: increment(1) });
+            
+            const newCount = currentCount + 1;
+            
+            // 2. Tampilkan nilai baru di halaman
             countSpan.textContent = newCount.toLocaleString('id-ID');
             
-            // --- BAGIAN BARU: Panggil Cloudflare Worker ---
-            // Hanya panggil jika ini adalah kunjungan pertama dalam sesi
-            if (sessionStorage.getItem('asnaVisited') === 'true') {
-                // Kirim permintaan ke Worker di latar belakang
-                fetch(WORKER_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ count: newCount })
-                })
-                .then(response => response.json())
-                .then(data => console.log('Notifikasi dipicu:', data.status))
-                .catch(error => console.error('Gagal memicu notifikasi:', error));
-                
-                // Tandai sudah dikirim agar tidak dikirim lagi saat refresh
-                sessionStorage.setItem('asnaVisited', 'sent');
-            }
-            // ---------------------------------------------
-
+            // --- PERUBAHAN PENTING ---
+            // 3. Ambil offset timezone dari browser dalam satuan menit
+            const offsetMinutes = new Date().getTimezoneOffset();
+            
+            // 4. Kirim notifikasi ke Telegram dengan nilai baru DAN offset
+            fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                // Tambahkan 'offset' ke dalam body
+                body: JSON.stringify({ count: newCount, offset: offsetMinutes })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Notifikasi dipicu:', data.status))
+            .catch(error => console.error('Gagal memicu notifikasi:', error));
+            
         } else {
-            await setDoc(counterRef, { count: 1 });
-            countSpan.textContent = '1';
+            // Jika ini bukan kunjungan pertama (misal, refresh), cukup tampilkan nilai yang ada
+            countSpan.textContent = currentCount.toLocaleString('id-ID');
         }
+        
     } catch (error) {
         console.error("Error updating or fetching visitor count: ", error);
         countSpan.textContent = 'N/A';
